@@ -1,0 +1,23 @@
+@import "../../../colors.scss";
+
+.main-footer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-color: $dark-grey;
+  padding: 4rem;
+
+  width: 100%;
+  min-width: 400px;
+
+  img {
+    width: 10rem;
+    height: 6rem;
+  }
+
+  h2 {
+    color: #c1c1c1;
+    font-weight: 300;
+  }
+}

@@ -1,0 +1,16 @@
+@import "../../../colors.scss";
+
+.main-header {
+  display: flex;
+  justify-content: center;
+  background-color: black;
+  padding: 2.5rem;
+
+  width: 100%;
+  min-width: 400px;
+
+  img {
+    width: 24rem;
+    height: 6rem;
+  }
+}

@@ -1,0 +1,29 @@
+@import "../colors.scss";
+
+.main-container {
+  width: 100vw;
+  height: 100vh;
+  min-width: 400px;
+}
+
+.entrance-text {
+  padding: 1.5rem;
+
+  h1 {
+    font-size: 3rem;
+
+    &::after {
+      content: " ";
+      display: block;
+      width: 8rem;
+      height: 0.75rem;
+      background-color: black;
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+    }
+  }
+
+  p {
+    color: $light-grey;
+  }
+}
