@@ -1,0 +1,119 @@
+@import "../../../colors.scss";
+
+.form-container {
+  padding: 1rem;
+  max-width: 64rem;
+  height: fit-content;
+  margin: 2rem auto;
+
+  border-radius: 8px;
+  border: 2px solid $simple-grey;
+  box-shadow: 0 4px 2px -2px $simple-grey;
+}
+
+.header-form {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
+
+  img {
+    width: 2rem;
+  }
+}
+
+.periodo-section {
+  margin: 1rem 0;
+  span {
+    font-size: 1.5rem;
+  }
+}
+
+.divider {
+  display: block;
+  height: 2px;
+  background-color: #ededed;
+}
+
+.radio-group-container {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0;
+
+  .radio-option {
+    padding: 0.25rem;
+    display: flex;
+    justify-content: space-between;
+
+    &:nth-child(2) {
+      border: none;
+    }
+
+    span {
+      font-size: 1rem;
+    }
+  }
+}
+
+.check-option {
+  padding: 0.25rem;
+  margin: 2rem 0;
+  display: flex;
+  justify-content: space-between;
+
+  label,
+  span {
+    color: black;
+    font-weight: 500;
+  }
+
+  span {
+    font-size: 1rem;
+  }
+}
+
+.buttons-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    max-width: 24rem;
+    padding: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 8px;
+    font-size: 1rem;
+    flex: 1;
+  }
+
+  .btn-primary {
+    background-color: $yellow;
+    border: 1px solid $yellow;
+    outline: none;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #e49f00;
+      border-color: #e49f00;
+    }
+  }
+
+  .btn-secondary {
+    outline: none;
+    border: 1px solid $simple-grey;
+    background-color: transparent;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $simple-grey;
+    }
+  }
+
+  @media (max-width: 550px) {
+    flex-direction: column;
+  }
+}

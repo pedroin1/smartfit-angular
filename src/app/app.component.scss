@@ -4,11 +4,10 @@
   width: 100vw;
   height: 100vh;
   min-width: 400px;
+  padding: 1.5rem;
 }
 
 .entrance-text {
-  padding: 1.5rem;
-
   h1 {
     font-size: 3rem;
 
@@ -21,9 +20,5 @@
       margin-top: 1rem;
       margin-bottom: 2rem;
     }
-  }
-
-  p {
-    color: $light-grey;
   }
 }

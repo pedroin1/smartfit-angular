@@ -1,0 +1,66 @@
+<form action="" [formGroup]="formGroup" class="form-container">
+  <div class="header-form">
+    <img src="../../../assets/images/icon-hour.png" alt="" />
+    <p>Horário</p>
+  </div>
+  <section class="periodo-section">
+    <div>
+      <span>Qual periodo quer treinar?</span>
+      <div class="divider"></div>
+    </div>
+    <div class="radio-group-container">
+      <div class="radio-option">
+        <label>
+          <input
+            type="radio"
+            name="periodo"
+            id="manha_option"
+            formControlName="hour"
+          />
+          Manha
+        </label>
+        <span>06:00 ás 12h</span>
+      </div>
+      <div class="divider"></div>
+      <div class="radio-option">
+        <label>
+          <input
+            type="radio"
+            name="periodo"
+            id="tarde_option"
+            formControlName="hour"
+          />
+          Tarde
+        </label>
+        <span>12:01 ás 18h</span>
+      </div>
+      <div class="divider"></div>
+      <div class="radio-option">
+        <label>
+          <input
+            type="radio"
+            name="periodo"
+            id="noite_option"
+            formControlName="hour"
+          />
+          Noite
+        </label>
+        <span>18:01 ás 23h</span>
+      </div>
+      <div class="divider"></div>
+    </div>
+    <div class="check-option">
+      <label>
+        <input type="checkbox" formControlName="showCLosedUnits" />
+        Exibir unidades fechadas?
+      </label>
+      <span>Resultados encontrados: <b>0</b></span>
+    </div>
+  </section>
+  <div class="buttons-wrapper">
+    <button class="btn-primary" (click)="onSubmitForm()">
+      Encontrar Unidade
+    </button>
+    <button class="btn-secondary" (click)="onCleanForm()">Limpar</button>
+  </div>
+</form>
