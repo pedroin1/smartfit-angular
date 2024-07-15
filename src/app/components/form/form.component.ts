@@ -23,7 +23,10 @@ export class FormComponent implements OnInit {
     console.log(this.formGroup);
   }
 
-  onCleanForm() {}
+  onCleanForm() {
+    this.formGroup.reset();
+    this.results = [];
+  }
 
   ngOnInit(): void {
     this.formGroup = new FormGroup({

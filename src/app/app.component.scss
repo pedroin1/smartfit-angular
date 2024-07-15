@@ -1,10 +1,11 @@
 @import "../colors.scss";
 
 .main-container {
-  width: 100vw;
-  height: 100vh;
-  min-width: 400px;
   padding: 1.5rem;
+  width: 100%;
+  min-width: 400px;
+  height: 100%;
+  min-height: 100vh;
 }
 
 .entrance-text {

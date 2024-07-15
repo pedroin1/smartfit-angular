@@ -2,8 +2,8 @@
 
 .main-footer {
   display: flex;
-  justify-content: center;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   background-color: $dark-grey;
   padding: 4rem;
@@ -19,5 +19,13 @@
   h2 {
     color: #c1c1c1;
     font-weight: 300;
+  }
+
+  @media (max-width: 550px) {
+    padding: 1rem;
+
+    h2 {
+      display: none;
+    }
   }
 }
