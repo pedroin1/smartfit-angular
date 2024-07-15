@@ -54,10 +54,12 @@
     </div>
     <div class="check-option">
       <label>
-        <input type="checkbox" formControlName="showCLosedUnits" />
-        Exibir unidades fechadas?
+        <input type="checkbox" formControlName="showClosedUnits" />
+        Incluir unidades fechadas?
       </label>
-      <span>Resultados encontrados: <b>0</b></span>
+      <span
+        >Resultados encontrados: <b>{{ filteredResults.length }}</b></span
+      >
     </div>
   </section>
   <div class="buttons-wrapper">

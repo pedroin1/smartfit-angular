@@ -1,37 +1,51 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  ReactiveFormsModule,
-} from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { LocationsService } from '../../services/locations.service';
+import { ILocation } from '../../types/location.types';
+
+import { FilterService } from '../../services/filter.service';
 
 @Component({
   selector: 'app-form',
   standalone: true,
   imports: [ReactiveFormsModule],
+  providers: [LocationsService, FilterService],
   templateUrl: './form.component.html',
   styleUrl: './form.component.scss',
 })
 export class FormComponent implements OnInit {
-  results = [];
-  formGroup!: FormGroup;
+  protected results: ILocation[] = [];
+  protected filteredResults: ILocation[] = [];
+  protected formGroup!: FormGroup;
 
-  constructor() {}
+  constructor(
+    private locationsService: LocationsService,
+    private filterService: FilterService
+  ) {}
 
-  onSubmitForm() {
-    console.log(this.formGroup);
+  protected onSubmitForm(): void {
+    let { showClosedUnits, hour } = this.formGroup.value;
+    this.filteredResults = this.filterService.filter(
+      this.results,
+      showClosedUnits,
+      hour
+    );
   }
 
-  onCleanForm() {
+  protected onCleanForm(): void {
     this.formGroup.reset();
-    this.results = [];
+    this.filteredResults = this.results;
   }
 
   ngOnInit(): void {
+    this.locationsService.listAllLocations().subscribe((data) => {
+      this.results = data.locations;
+      this.filteredResults = data.locations;
+    });
+
     this.formGroup = new FormGroup({
       hour: new FormControl(''),
-      showCLosedUnits: new FormControl(false),
+      showClosedUnits: new FormControl(true),
     });
   }
 }

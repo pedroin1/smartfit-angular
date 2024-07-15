@@ -44,6 +44,7 @@
     padding: 0.25rem;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 
     &:nth-child(2) {
       border: none;
@@ -65,10 +66,17 @@
   span {
     color: black;
     font-weight: 500;
+    font-size: 1rem;
   }
 
   span {
     font-size: 1rem;
+  }
+
+  @media (max-width: 550px) {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: center;
   }
 }
 
