@@ -9,8 +9,12 @@ import { capitalize, convert_today } from '../utils/Utils';
 @Injectable({
   providedIn: 'root',
 })
-export class FilterService implements OnInit {
-  today: string = '';
+export class FilterService {
+  today: string = capitalize(
+    new Date().toLocaleDateString('pt-BR', {
+      weekday: 'short',
+    })
+  );
 
   constructor() {}
 
@@ -30,6 +34,9 @@ export class FilterService implements OnInit {
         scheduleWeekDay === convert_today(this.today)
       ) {
         let [locationOpenHour, locationCloseHour] = scheduleHour.split(' às ');
+        console.log(locationCloseHour);
+        console.log(locationOpenHour);
+
         let formatedOpenHour = Number(locationOpenHour.replace('h', ''));
         let formatedCloseHour = Number(locationCloseHour.replace('h', ''));
 
@@ -58,13 +65,5 @@ export class FilterService implements OnInit {
     } else {
       return intermediateResults;
     }
-  }
-
-  ngOnInit(): void {
-    this.today = capitalize(
-      new Date().toLocaleDateString('pt-BR', {
-        weekday: 'short',
-      })
-    );
   }
 }

@@ -4,6 +4,7 @@ export function capitalize(string: string): string {
 }
 
 export function convert_today(day: string) {
+  console.log(day);
   switch (day) {
     case 'Seg.' || 'Ter.' || 'Qua.' || 'Qui.' || 'Sex.':
       return 'Seg. à Sex.';
@@ -12,6 +13,6 @@ export function convert_today(day: string) {
     case 'Dom.':
       return 'Dom.';
     default:
-      return 'Erro';
+      return 'Erro ao converter data do da semana';
   }
 }
