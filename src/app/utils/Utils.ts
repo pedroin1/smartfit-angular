@@ -4,7 +4,6 @@ export function capitalize(string: string): string {
 }
 
 export function convert_today(day: string) {
-  console.log(day);
   switch (day) {
     case 'Seg.' || 'Ter.' || 'Qua.' || 'Qui.' || 'Sex.':
       return 'Seg. à Sex.';
