@@ -1,6 +1,6 @@
 .cards-list-container {
   display: grid;
-  grid-template-columns: repeat(3, 270px);
+  grid-template-columns: repeat(3, auto);
   justify-content: center;
   row-gap: 1rem;
   column-gap: 1rem;

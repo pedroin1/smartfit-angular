@@ -11,10 +11,10 @@ export interface ILocation {
   title: string;
   content: string;
   opened: boolean;
-  mask: string;
-  towel: string;
-  fountain: string;
-  locker_room: string;
+  mask: TypeMask;
+  towel: TypeTowel;
+  fountain: TypeFountain;
+  locker_room: TypeLockerRoom;
   schedules: ISchedule[];
   street: string;
   region: string;
@@ -28,6 +28,10 @@ interface ISchedule {
   hour: string;
 }
 
+export type TypeMask = 'recommended' | 'required';
+export type TypeTowel = TypeMask;
+export type TypeFountain = 'not_allowed' | 'partial';
+export type TypeLockerRoom = 'allowed' | 'closed' | 'partial';
 export type TypesMomentoDia = 'manha' | 'tarde' | 'noite';
 
 export const HORARIOS_DIA = {

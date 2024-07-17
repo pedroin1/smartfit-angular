@@ -8,14 +8,15 @@
   >
   <div class="card-info-header">
     <h2>{{ location.title }}</h2>
-    {{ location.content }}
+    <p>{{ location.content }}</p>
   </div>
+  @if(location.opened){
   <div class="divider-bolder"></div>
   <div class="card-images-wrapper">
-    <img src="../../../assets/images/forbidden-fountain.png" alt="" />
-    <img src="../../../assets/images/forbidden-fountain.png" alt="" />
-    <img src="../../../assets/images/forbidden-fountain.png" alt="" />
-    <img src="../../../assets/images/forbidden-fountain.png" alt="" />
+    <img [src]="maskInfo(location.mask)" alt="mask_info" />
+    <img [src]="towelInfo(location.towel)" alt="towel_info" />
+    <img [src]="fountainInfo(location.fountain)" alt="fountain_info" />
+    <img [src]="lockerromInfo(location.locker_room)" alt="locker_info" />
   </div>
   <ul class="card-info-schedule">
     @for (schedule of location.schedules; track location.id) {
@@ -25,4 +26,5 @@
     </li>
     }
   </ul>
+  }
 </div>
