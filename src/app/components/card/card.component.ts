@@ -7,6 +7,7 @@ import {
   TypeTowel,
 } from '../../types/location.types';
 import { CommonModule } from '@angular/common';
+import { stat } from 'node:fs';
 
 @Component({
   selector: 'app-card',
@@ -16,33 +17,47 @@ import { CommonModule } from '@angular/common';
   styleUrl: './card.component.scss',
 })
 export class CardComponent {
+  private urlImageFolder: string = '../../../assets/images/';
+
   @Input({ required: true }) location!: ILocation;
 
+  constructor() {}
+
   maskInfo(statusMask: TypeMask) {
-    if (statusMask === 'required') {
-      return '../../../assets/images/required-mask.png';
-    } else return '../../../assets/images/recommended-mask.png';
+    switch (statusMask) {
+      case 'required':
+        return this.urlImageFolder + 'required-mask.png';
+      case 'recommended':
+        return this.urlImageFolder + 'recommended-mask.png';
+    }
   }
 
   towelInfo(statusTowel: TypeTowel) {
-    if (statusTowel === 'required') {
-      return '../../../assets/images/required-towel.png';
-    } else return '../../../assets/images/recommended-mask.png';
+    switch (statusTowel) {
+      case 'required':
+        return this.urlImageFolder + 'required-towel.png';
+      case 'recommended':
+        return this.urlImageFolder + 'recommended-mask.png';
+    }
   }
 
   fountainInfo(statusFountain: TypeFountain) {
-    if (statusFountain === 'partial') {
-      return '../../../assets/images/partial-fountain.png';
-    } else return '../../../assets/images/forbidden-fountain.png';
+    switch (statusFountain) {
+      case 'partial':
+        return this.urlImageFolder + 'partial-fountain.png';
+      case 'not_allowed':
+        return this.urlImageFolder + 'forbidden-fountain.png';
+    }
   }
 
   lockerromInfo(statusLocker: TypeLockerRoom) {
-    if (statusLocker === 'allowed') {
-      return '../../../assets/images/required-lockerroom.png';
-    } else if (statusLocker === 'partial') {
-      return '../../../assets/images/partial-lockerroom.png';
-    } else return '../../../assets/images/forbidden-lockerroom.png';
+    switch (statusLocker) {
+      case 'allowed':
+        return this.urlImageFolder + 'required-lockerroom.png';
+      case 'partial':
+        return this.urlImageFolder + 'partial-lockerroom.png';
+      case 'closed':
+        return this.urlImageFolder + 'forbidden-lockerroom.png';
+    }
   }
-
-  constructor() {}
 }

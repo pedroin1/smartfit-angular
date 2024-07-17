@@ -9,19 +9,21 @@ import { BehaviorSubject } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { ILocation } from './types/location.types';
 import { LocationsService } from './services/locations.service';
+import { CaptionComponent } from './components/caption/caption.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
     RouterOutlet,
+    CommonModule,
     CardsListComponent,
     HeaderComponent,
     FooterComponent,
     FormComponent,
     CardComponent,
-    CommonModule,
     CardComponent,
+    CaptionComponent,
   ],
   providers: [LocationsService],
   templateUrl: './app.component.html',

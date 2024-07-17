@@ -8,7 +8,7 @@
   >
   <div class="card-info-header">
     <h2>{{ location.title }}</h2>
-    <p>{{ location.content }}</p>
+    <p [innerHTML]="location.content"></p>
   </div>
   @if(location.opened){
   <div class="divider-bolder"></div>

@@ -12,6 +12,7 @@
     </p>
   </section>
   <app-form (onSubmitFormLocationEvent)="onSubmitFormLocation()"></app-form>
+  <app-caption *ngIf="showListLocation | async"></app-caption>
   <app-cards-list
     *ngIf="showListLocation | async"
     [locationsList]="locationsList"
