@@ -6,7 +6,7 @@
   height: fit-content;
   margin: 2rem auto;
 
-  border-radius: 8px;
+  border-radius: 0.5rem;
   border: 2px solid $simple-grey;
   box-shadow: 0 4px 2px -2px $simple-grey;
 }
@@ -27,12 +27,6 @@
   span {
     font-size: 1.5rem;
   }
-}
-
-.divider {
-  display: block;
-  height: 2px;
-  background-color: #ededed;
 }
 
 .radio-group-container {

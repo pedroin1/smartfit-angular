@@ -1,5 +1,5 @@
-<ul>
+<ul class="cards-list-container">
   @for (item of locationsList; track $index) {
-  <li>{{ item }}</li>
+  <app-card [location]="item"></app-card>
   }
 </ul>

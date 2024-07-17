@@ -15,6 +15,18 @@ label {
   color: $light-grey;
 }
 
+.divider {
+  display: block;
+  height: 2px;
+  background-color: #ededed;
+}
+
+.divider-bolder {
+  display: block;
+  height: 2px;
+  background-color: $simple-grey;
+}
+
 @font-face {
   font-family: "Gotham";
   src: url("assets/fonts/gotham/gotham-light.woff2") format("truetype");

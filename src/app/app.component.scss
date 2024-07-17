@@ -11,13 +11,14 @@
 .entrance-text {
   h1 {
     font-size: 3rem;
+    color: $dark-grey;
 
     &::after {
       content: " ";
       display: block;
       width: 8rem;
       height: 0.75rem;
-      background-color: black;
+      background-color: $dark-grey;
       margin-top: 1rem;
       margin-bottom: 2rem;
     }

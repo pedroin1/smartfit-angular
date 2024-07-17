@@ -21,6 +21,7 @@ import { LocationsService } from './services/locations.service';
     FormComponent,
     CardComponent,
     CommonModule,
+    CardComponent,
   ],
   providers: [LocationsService],
   templateUrl: './app.component.html',

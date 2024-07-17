@@ -1,1 +1,28 @@
-<div>meu card</div>
+<div class="card-container">
+  <span
+    [ngClass]="{
+      'card-status-location-opened': location.opened,
+      'card-status-location-closed': !location.opened
+    }"
+    >{{ location.opened ? "Aberto" : "Fechado" }}</span
+  >
+  <div class="card-info-header">
+    <h2>{{ location.title }}</h2>
+    {{ location.content }}
+  </div>
+  <div class="divider-bolder"></div>
+  <div class="card-images-wrapper">
+    <img src="../../../assets/images/forbidden-fountain.png" alt="" />
+    <img src="../../../assets/images/forbidden-fountain.png" alt="" />
+    <img src="../../../assets/images/forbidden-fountain.png" alt="" />
+    <img src="../../../assets/images/forbidden-fountain.png" alt="" />
+  </div>
+  <ul class="card-info-schedule">
+    @for (schedule of location.schedules; track location.id) {
+    <li>
+      <h3>{{ schedule.weekdays }}</h3>
+      <span>{{ schedule.hour }}</span>
+    </li>
+    }
+  </ul>
+</div>

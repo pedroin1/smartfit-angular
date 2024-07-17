@@ -1,0 +1,55 @@
+@import "../../../colors.scss";
+
+.card-container {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  background-color: $card-color;
+  max-width: 270px;
+  height: 100%;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.card-status-location-closed,
+.card-status-location-opened {
+  font-weight: bold;
+}
+
+.card-status-location-opened {
+  color: $green;
+}
+.card-status-location-closed {
+  color: $red;
+}
+
+.card-info-header {
+  display: flex;
+  flex-direction: column;
+  margin: 0.75rem 0;
+
+  h2 {
+    margin-bottom: 0.5rem;
+    color: $dark-grey;
+  }
+}
+
+.card-images-wrapper {
+  margin: 1rem auto;
+  img {
+    width: 50px;
+  }
+}
+
+.card-info-schedule {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+
+  li {
+    h3 {
+      color: $dark-grey;
+    }
+  }
+}
