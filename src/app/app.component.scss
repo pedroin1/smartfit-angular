@@ -9,6 +9,9 @@
 }
 
 .entrance-text {
+  max-width: 78rem;
+  width: 100%;
+  margin: 0 auto;
   h1 {
     font-size: 3rem;
     color: $dark-grey;

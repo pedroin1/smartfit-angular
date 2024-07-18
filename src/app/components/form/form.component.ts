@@ -38,7 +38,7 @@ export class FormComponent implements OnInit {
 
   protected onCleanForm(): void {
     this.formGroup.reset();
-    this.filteredResults = this.results;
+    this.filteredResults = [];
   }
 
   ngOnInit(): void {
