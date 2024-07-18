@@ -34,8 +34,6 @@ export class FilterService {
         scheduleWeekDay === convert_today(this.today)
       ) {
         let [locationOpenHour, locationCloseHour] = scheduleHour.split(' às ');
-        console.log(locationCloseHour);
-        console.log(locationOpenHour);
 
         let formatedOpenHour = Number(locationOpenHour.replace('h', ''));
         let formatedCloseHour = Number(locationCloseHour.replace('h', ''));

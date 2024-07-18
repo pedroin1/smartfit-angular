@@ -3,7 +3,20 @@
 .caption-container {
   margin: 0 auto;
   background-color: $card-color;
-  width: 80rem;
+  width: 64rem;
   height: 10rem;
   margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.caption-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  img {
+    width: 50px;
+  }
 }
