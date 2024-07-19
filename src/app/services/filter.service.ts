@@ -38,7 +38,7 @@ export class FilterService {
         let formatedOpenHour = Number(locationOpenHour.replace('h', ''));
         let formatedCloseHour = Number(locationCloseHour.replace('h', ''));
 
-        if (formatedCloseHour >= openHour && formatedOpenHour <= closeHour) {
+        if (formatedOpenHour >= openHour && formatedCloseHour <= closeHour) {
           return true;
         } else return false;
       }
