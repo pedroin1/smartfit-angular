@@ -19,6 +19,7 @@ export class FormComponent implements OnInit {
   protected formGroup!: FormGroup;
 
   @Output() onSubmitFormLocationEvent = new EventEmitter();
+  @Output() onClearLocationListEvent = new EventEmitter();
 
   constructor(
     private locationsService: LocationsService,
@@ -39,6 +40,7 @@ export class FormComponent implements OnInit {
   protected onCleanForm(): void {
     this.formGroup.reset();
     this.filteredResults = [];
+    this.onClearLocationListEvent.emit();
   }
 
   ngOnInit(): void {

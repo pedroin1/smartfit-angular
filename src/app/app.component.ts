@@ -39,4 +39,9 @@ export class AppComponent {
     this.locationsList = this.locationsService.getFilteredLocations();
     this.showListLocation.next(true);
   }
+
+  onClearLocationList() {
+    this.locationsList = [];
+    this.showListLocation.next(true);
+  }
 }

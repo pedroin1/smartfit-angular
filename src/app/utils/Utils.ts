@@ -4,14 +4,19 @@ export function capitalize(string: string): string {
 }
 
 export function convert_today(day: string) {
-  switch (day) {
-    case 'Seg.' || 'Ter.' || 'Qua.' || 'Qui.' || 'Sex.':
-      return 'Seg. à Sex.';
-    case 'Sáb.':
-      return 'Sáb.';
-    case 'Dom.':
-      return 'Dom.';
-    default:
-      return 'Erro ao converter data do da semana';
+  if (
+    day === 'Seg.' ||
+    day === 'Ter.' ||
+    day === 'Qua.' ||
+    day === 'Qui.' ||
+    day === 'Sex.'
+  ) {
+    return 'Seg. à Sex.';
+  } else if (day === 'Sáb.') {
+    return 'Sáb.';
+  } else if (day === 'Dom.') {
+    return 'Dom.';
+  } else {
+    return 'Erro ao converter data do dia da semana';
   }
 }
