@@ -1,22 +1,35 @@
-import { Injectable, OnInit } from '@angular/core';
-import {
-  HORARIOS_DIA,
-  ILocation,
-  TypesMomentoDia,
-} from '../types/location.types';
+import { DestroyRef, Injectable, signal } from '@angular/core';
 import { capitalize, convert_today } from '../utils/Utils';
+import { LocationsService } from './locations.service';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { ILocation } from '../types/location';
+import { TypesMomentoDia } from '../types/masks';
+import { HORARIOS_DIA } from '../constants/hours-of-day';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FilterService {
-  today: string = capitalize(
+  private today: string = capitalize(
     new Date().toLocaleDateString('pt-BR', {
       weekday: 'short',
     })
   );
 
-  constructor() {}
+  private allLocationsResult = signal<ILocation[]>([]);
+
+  constructor(
+    private destroyRef: DestroyRef,
+    private locationService: LocationsService
+  ) {
+    this.getAllLocationsResult();
+  }
+
+  private getAllLocationsResult() {
+    this.locationService.allLocations$
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe((allLocations) => this.allLocationsResult.set(allLocations));
+  }
 
   private filterBySchedule(
     dataLocation: ILocation,
@@ -46,11 +59,13 @@ export class FilterService {
     return false;
   }
 
-  public filter(results: ILocation[], showClosedUnits: boolean, hour: string) {
-    let intermediateResults = results;
+  public filter(showClosedUnits: boolean, hour: string) {
+    let intermediateResults = this.allLocationsResult();
 
     if (!showClosedUnits) {
-      intermediateResults = results.filter((data) => data.opened === true);
+      intermediateResults = this.allLocationsResult().filter(
+        (data) => data.opened === true
+      );
     }
 
     if (hour !== '') {

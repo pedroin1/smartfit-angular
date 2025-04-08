@@ -1,13 +1,12 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import {
-  ILocation,
   TypeFountain,
   TypeLockerRoom,
   TypeMask,
   TypeTowel,
-} from '../../types/location.types';
+} from '../../types/masks';
 import { CommonModule } from '@angular/common';
-import { stat } from 'node:fs';
+import { ILocation } from '../../types/location';
 
 @Component({
   selector: 'app-card',
@@ -17,47 +16,47 @@ import { stat } from 'node:fs';
   styleUrl: './card.component.scss',
 })
 export class CardComponent {
-  private urlImageFolder: string = '../../../assets/images/';
+  public location = input.required<ILocation>();
 
-  @Input({ required: true }) location!: ILocation;
+  private URL_IMAGE_FOLDER: string = '../../../assets/images/';
 
   constructor() {}
 
-  maskInfo(statusMask: TypeMask) {
+  protected maskInfo(statusMask: TypeMask) {
     switch (statusMask) {
       case 'required':
-        return this.urlImageFolder + 'required-mask.png';
+        return this.URL_IMAGE_FOLDER + 'required-mask.png';
       case 'recommended':
-        return this.urlImageFolder + 'recommended-mask.png';
+        return this.URL_IMAGE_FOLDER + 'recommended-mask.png';
     }
   }
 
-  towelInfo(statusTowel: TypeTowel) {
+  protected towelInfo(statusTowel: TypeTowel) {
     switch (statusTowel) {
       case 'required':
-        return this.urlImageFolder + 'required-towel.png';
+        return this.URL_IMAGE_FOLDER + 'required-towel.png';
       case 'recommended':
-        return this.urlImageFolder + 'recommended-mask.png';
+        return this.URL_IMAGE_FOLDER + 'recommended-mask.png';
     }
   }
 
-  fountainInfo(statusFountain: TypeFountain) {
+  protected fountainInfo(statusFountain: TypeFountain) {
     switch (statusFountain) {
       case 'partial':
-        return this.urlImageFolder + 'partial-fountain.png';
+        return this.URL_IMAGE_FOLDER + 'partial-fountain.png';
       case 'not_allowed':
-        return this.urlImageFolder + 'forbidden-fountain.png';
+        return this.URL_IMAGE_FOLDER + 'forbidden-fountain.png';
     }
   }
 
-  lockerromInfo(statusLocker: TypeLockerRoom) {
+  protected lockerromInfo(statusLocker: TypeLockerRoom) {
     switch (statusLocker) {
       case 'allowed':
-        return this.urlImageFolder + 'required-lockerroom.png';
+        return this.URL_IMAGE_FOLDER + 'required-lockerroom.png';
       case 'partial':
-        return this.urlImageFolder + 'partial-lockerroom.png';
+        return this.URL_IMAGE_FOLDER + 'partial-lockerroom.png';
       case 'closed':
-        return this.urlImageFolder + 'forbidden-lockerroom.png';
+        return this.URL_IMAGE_FOLDER + 'forbidden-lockerroom.png';
     }
   }
 }

@@ -15,10 +15,9 @@
     (onClearLocationListEvent)="onClearLocationList()"
     (onSubmitFormLocationEvent)="onSubmitFormLocation()"
   ></app-form>
-  <app-caption *ngIf="showListLocation | async"></app-caption>
-  <app-cards-list
-    *ngIf="showListLocation | async"
-    [locationsList]="locationsList"
-  ></app-cards-list>
+  @if ( showListLocation() ) {
+  <app-caption></app-caption>
+  <app-cards-list [locationsList]="locationsList()"></app-cards-list>
+  }
 </main>
 <app-footer></app-footer>

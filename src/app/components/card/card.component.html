@@ -1,25 +1,25 @@
 <div class="card-container">
   <span
     [ngClass]="{
-      'card-status-location-opened': location.opened,
-      'card-status-location-closed': !location.opened
+      'card-status-location-opened': location().opened,
+      'card-status-location-closed': !location().opened
     }"
-    >{{ location.opened ? "Aberto" : "Fechado" }}</span
+    >{{ location().opened ? "Aberto" : "Fechado" }}</span
   >
   <div class="card-info-header">
-    <h2>{{ location.title }}</h2>
-    <p [innerHTML]="location.content"></p>
+    <h2>{{ location().title }}</h2>
+    <p [innerHTML]="location().content"></p>
   </div>
-  @if(location.opened){
+  @if(location().opened){
   <div class="divider-bolder"></div>
   <div class="card-images-wrapper">
-    <img [src]="maskInfo(location.mask)" alt="mask_info" />
-    <img [src]="towelInfo(location.towel)" alt="towel_info" />
-    <img [src]="fountainInfo(location.fountain)" alt="fountain_info" />
-    <img [src]="lockerromInfo(location.locker_room)" alt="locker_info" />
+    <img [src]="maskInfo(location().mask)" alt="mask_info" />
+    <img [src]="towelInfo(location().towel)" alt="towel_info" />
+    <img [src]="fountainInfo(location().fountain)" alt="fountain_info" />
+    <img [src]="lockerromInfo(location().locker_room)" alt="locker_info" />
   </div>
   <ul class="card-info-schedule">
-    @for (schedule of location.schedules; track location.id) {
+    @for (schedule of location().schedules; track location().id) {
     <li>
       <h3>{{ schedule.weekdays }}</h3>
       <span>{{ schedule.hour }}</span>
